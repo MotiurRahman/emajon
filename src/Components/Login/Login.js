@@ -5,7 +5,7 @@ import { AuthContext } from "../../Context/UserContext";
 import "./Loging.css";
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -15,6 +15,7 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+
     signInUser(email, password)
       .then((userCredential) => {
         const user = userCredential.user;

@@ -14,10 +14,22 @@
   font-size: 17px;
   margin-left: 36px;
 }
+
 .header a:hover {
   color: orange;
 }
 
 .wlcome {
   color: white;
+}
+
+.btnLogout {
+  margin-left: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid orange;
+}
+
+.btnLogout:hover {
+  background-color: orange;
 }

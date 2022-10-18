@@ -12,3 +12,11 @@
 1. Create userContext
 
 */
+
+/*
+
+1. Firebase hosting
+
+1. First time for each pc
+
+*/

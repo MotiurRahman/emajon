@@ -19,7 +19,7 @@ function App() {
       element: <Main></Main>,
       children: [
         {
-          path: "shop",
+          path: "/",
           loader: () => fetch("products.json"),
           element: <Shop></Shop>,
         },
@@ -28,7 +28,14 @@ function App() {
           loader: productsAndCartLoaders,
           element: <Orders></Orders>,
         },
-        { path: "inventory", element: <Inventory></Inventory> },
+        {
+          path: "inventory",
+          element: (
+            <PrivateRoute>
+              <Inventory></Inventory>
+            </PrivateRoute>
+          ),
+        },
         {
           path: "/shipping",
           element: (

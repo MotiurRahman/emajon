@@ -15,36 +15,25 @@ const UserContext = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const creatUser = (email, password) => {
-    setLoading(false);
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signInUser = (email, password) => {
-    setLoading(false);
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const signOutUser = () => {
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        // An error happened.
-      });
+    setLoading(true);
+    return signOut(auth);
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
-      if (currentuser) {
-        setUser(currentuser);
-        console.log("currentuser state change", currentuser);
-        setLoading(false);
-        // ...
-      } else {
-        // User is signed out
-        // ...
-      }
+      setUser(currentuser);
+      console.log("currentuser state change", currentuser);
+      setLoading(false);
     });
     return () => unsubscribe();
   }, []);
